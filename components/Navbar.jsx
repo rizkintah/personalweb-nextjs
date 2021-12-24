@@ -11,21 +11,25 @@ function Navbar({router}) {
     ];
     
     return (
-        <nav className="navbar">
-            <div className="container">
-            <Link href="/"><a className="logo">ERH.</a></Link>
-            
-            <ul className="nav-links">
-                {
-                    menuItem.map((navItem, key) => (
-                        <li key={key}>
-                            <Link href={navItem.href}>
-                                <a className={`nav-item ${router.pathname == navItem.href ? 'active' : ''}`} >{navItem.text}</a>
-                            </Link>
-                        </li>
-                    ))
-                }
-            </ul>
+        <nav className="mt-12">
+            <div className="max-w-4xl mx-auto">
+                <div className="flex justify-between items-center">
+                    <Link href="/">
+                        <a className="text-5xl font-semibold">ERH.</a>
+                    </Link>
+                    
+                    <ul className="flex items-center">
+                        {
+                            menuItem.map((navItem, key) => (
+                                <li key={key}>
+                                    <Link href={navItem.href}>
+                                        <a className={`item-links ${router.pathname == navItem.href ? 'active' : ''}`} >{navItem.text}</a>
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         </nav>
     );
